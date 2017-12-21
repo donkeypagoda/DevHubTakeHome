@@ -1,7 +1,3 @@
-https://www.geekwire.com/2017/drop-tune-seattle-mobile-analytics-companys-founders-set-tech-outpost-alaska/
- 
-Thanks for stopping by today. Here are the details for the project.
- 
 Setup a simple form to collect info. Form can have default values set to help with testing
 •           Business Name
 •           Street
