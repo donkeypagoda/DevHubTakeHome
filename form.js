@@ -10,9 +10,13 @@ formButton.onclick = (e) => {
     jsonObj[key] = bizForm.elements[i].value;
   }
   // siteURL = JSON.stringify(jsonObj);
-  let jQ = $(jsonObj)
+
+  // attempt to use serialize from jQuery
+  let jQ = $("#bizForm")
   siteURL = jQ.serialize();
   console.log(siteURL);
+  //
+
   modal.open();
 };
 
