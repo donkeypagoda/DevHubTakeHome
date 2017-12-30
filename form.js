@@ -11,7 +11,7 @@ formButton.onclick = (e) => {
   }
   // siteURL = JSON.stringify(jsonObj);
 
-  // attempt to use serialize from jQuery
+  // alternate method using serialize from jQuery, still doesn't match cloud template input format, so still unrecognized
   let jQ = $("#bizForm")
   siteURL = jQ.serialize();
   console.log(siteURL);
