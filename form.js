@@ -7,10 +7,20 @@ let jsonObj = {
   "phone_number": ""
 }
 
-const formButton = document.getElementById("formButton")
-// formButton.preventDefault()
-formButton.onclick = () => {
+const formBiz = document.getElementById("formBiz");
+const formStreet = document.getElementById("formStreet");
+const formCity = document.getElementById("formCity");
+const formState = document.getElementById("formState");
+const formPc = document.getElementById("formPc");
+const formCountry = document.getElementById("formCountry");
+const formPhone = document.getElementById("formPhone");
+const formButton = document.getElementById("formButton");
+
+
+formButton.onclick = (e) => {
+  e.preventDefault();
   modal.open();
+  console.log(document.forms[0]);
 };
 
 const modal = new tingle.modal({
