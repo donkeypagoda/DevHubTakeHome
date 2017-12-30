@@ -5,17 +5,15 @@ const formButton = document.getElementById("formButton");
 
 formButton.onclick = (e) => {
   e.preventDefault();
+
   for (let i = 0; i < bizForm.elements.length - 1; i++){
     let key = bizForm.elements[i].id;
     jsonObj[key] = bizForm.elements[i].value;
   }
-  // siteURL = JSON.stringify(jsonObj);
 
-  // alternate method using serialize from jQuery, still doesn't match cloud template input format, so still unrecognized
-  let jQ = $("#bizForm")
-  siteURL = jQ.serialize();
-  console.log(siteURL);
-  // end alt method
+  siteURL = JSON.stringify(jsonObj);
+  const url= `http://cloudtemplates.cloudfrontend.net/app/live-preview/?clone_id=1576931&site=${encodeURIComponent(siteURL)}`
+  modal.setContent(`<iframe src=${url}></iframe>`);
 
   modal.open();
 };
@@ -28,10 +26,7 @@ const modal = new tingle.modal({
     cssClass: ['custom-class-1', 'custom-class-2'],
 });
 
-modal.setContent('<iframe src="http://cloudtemplates.cloudfrontend.net/app/live-preview/?clone_id=1576931&site="{siteURL}""></iframe>');
-// alternate URL for iframe testing:
-// modal.setContent('<iframe src="http://cloudtemplates.cloudfrontend.net/app/live-preview/?clone_id=1576931&site={%22business%22:{%22business_name%22:%20%22Johnson%20Legal%20Partners%22}}"></iframe>');
-
+modal.setContent('<iframe src="http://cloudtemplates.cloudfrontend.net/app/live-preview/?clone_id=1576931&site={siteURL}"></iframe>');
 
 modal.addFooterBtn('Close', 'tingle-btn tingle-btn--primary', function() {
     modal.close();
