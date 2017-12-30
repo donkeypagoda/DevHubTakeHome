@@ -1,3 +1,4 @@
+/*simple grid layout to make it not stuck to the side*/
 .wrapper {
   display: grid;
   grid-template-columns: repeat(12, 2fr);
