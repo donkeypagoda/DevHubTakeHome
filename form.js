@@ -1,26 +1,37 @@
 let jsonObj = {
-  "business_name": "",
-  "street": "",
-  "city": "",
-  "postal_code": "",
-  "country": "",
-  "phone_number": ""
+  // "business_name": "",
+  // "street": "",
+  // "city": "",
+  // "postal_code": "",
+  // "country": "",
+  // "phone_number": ""
 }
+let siteURL = ""
 
-const formBiz = document.getElementById("formBiz");
-const formStreet = document.getElementById("formStreet");
-const formCity = document.getElementById("formCity");
-const formState = document.getElementById("formState");
-const formPc = document.getElementById("formPc");
-const formCountry = document.getElementById("formCountry");
-const formPhone = document.getElementById("formPhone");
+// hard coded option
+// const bizForm = document.getElementById("bizForm");
+// const formBiz = document.getElementById("formBiz");
+// const formStreet = document.getElementById("formStreet");
+// const formCity = document.getElementById("formCity");
+// const formState = document.getElementById("formState");
+// const formPc = document.getElementById("formPc");
+// const formCountry = document.getElementById("formCountry");
+// const formPhone = document.getElementById("formPhone");
+// const formButton = document.getElementById("formButton");
+
+// iterative option
+const bizForm = document.getElementById("bizForm");
 const formButton = document.getElementById("formButton");
-
 
 formButton.onclick = (e) => {
   e.preventDefault();
+  for (let i = 0; i < bizForm.elements.length - 1; i++){
+    let key = bizForm.elements[i].id;
+    jsonObj[key] = bizForm.elements[i].value;
+  }
+  siteURL = JSON.stringify(jsonObj);
+  console.log(siteURL);
   modal.open();
-  console.log(document.forms[0]);
 };
 
 const modal = new tingle.modal({
@@ -44,7 +55,7 @@ const modal = new tingle.modal({
 });
 
 // set content
-modal.setContent('<h1>here\'s some content</h1>');
+modal.setContent('<iframe>http://cloudtemplates.cloudfrontend.net/app/live-preview/?clone_id=1576931&site={siteURL}</iframe>');
 
 // add a button
 modal.addFooterBtn('Button label', 'tingle-btn tingle-btn--primary', function() {
